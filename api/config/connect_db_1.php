@@ -1,8 +1,17 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "12345678";
-$database="addmember";
+
+// server
+$servername = "us-cdbr-east-05.cleardb.net";
+$username = "b75b79dccf2c1c";
+$password = "cc746e84";
+$database="heroku_67a8f7daac85d18";
+
+
+// // local
+// $servername = "localhost";
+// $username = "root";
+// $password = "12345678";
+// $database="addmember";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password,$database);
