@@ -15,6 +15,8 @@ $database="heroku_67a8f7daac85d18";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password,$database);
+// Change character set to utf8
+mysqli_set_charset($conn,"utf8");
 
 // Check connection
 if (!$conn) {
