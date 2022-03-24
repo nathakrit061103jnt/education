@@ -1,8 +1,8 @@
-<?php  
+<?php
 //คำสั่ง SQL บันทึกข้อมูลลงฐานข้อมูล
-        if (isset($_GET["deletePreConfirm"] )) {
-                echo
-                    "<script> 
+if (isset($_GET["deletePreConfirm"])) {
+    echo
+    "<script> 
                         Swal.fire({
                             icon: 'warning',
                             title: 'ยืนยันการลบข้อมูล?',
@@ -14,23 +14,23 @@
                             cancelButtonText: 'ไม่!'
                         }).then((result) => {
                             if (result.isConfirmed) {
-                                location = 'form.php?deleteConAlert=req&lec_id={$_GET["lec_id"]}&p_id={$_GET["p_id"]}'
+                                location = 'form.php?deletePreAlert=req&lec_id={$_GET["lec_id"]}&p_id={$_GET["p_id"]}'
                             }else{
                                 location = 'form.php?lec_id={$_GET["lec_id"]}'
                             }
                         }); 
                 </script>";
-        }
+}
 
-        //เช็อกว่่ามีการส่งค่า Get p_id หรือไม่ (?p_id=xxx)
-        if (isset($_GET["deletePreAlert"])) {
+//เช็อกว่่ามีการส่งค่า Get p_id หรือไม่ (?p_id=xxx)
+if (isset($_GET["deletePreAlert"])) {
 
-            // คำสั่ง sql ในการลบข้อมูล ตาราง tbl_products โดยจะลบข้อมูลสินค้า Tr_id ที่ส่งมา
-            $sql = "DELETE FROM presenter WHERE p_id={$_GET["p_id"]}";
+    // คำสั่ง sql ในการลบข้อมูล ตาราง tbl_products โดยจะลบข้อมูลสินค้า Tr_id ที่ส่งมา
+    $sql = "DELETE FROM presenter WHERE p_id={$_GET["p_id"]}";
 
-            if (mysqli_query($conn, $sql)) {
-                echo
-                    "<script> 
+    if (mysqli_query($conn, $sql)) {
+        echo
+        "<script> 
                         Swal.fire(
                             'ลบข้อมูลสำเร็จ!',
                             'ท่านได้ลบข้อมูลเรียบร้อย',
@@ -39,10 +39,10 @@
                                location = 'form.php?lec_id={$_GET["lec_id"]}'
                         })
                     </script>";
-                //header('Location: index.php');
-            } else {
-                echo
-                    "<script> 
+        //header('Location: index.php');
+    } else {
+        echo
+        "<script> 
                     Swal.fire({
                         icon: 'error',
                         title: 'ลบข้อมูลไม่สำเร็จ', 
@@ -50,9 +50,7 @@
                          location = 'form.php?lec_id={$_GET["lec_id"]}'
                     })
                 </script>";
-            }
+    }
 
-            // mysqli_close($conn);
-        }
-
-        ?>
+    // mysqli_close($conn);
+}
