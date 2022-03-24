@@ -30,7 +30,7 @@ include_once "./SelectFile.php";
      <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
 
      <!-- icon home -->
-     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+      <script src='https://use.fontawesome.com/releases/v5.15.4/js/all.js' crossorigin='anonymous'></script>
      <style>
      body {
          margin: 10px;
@@ -151,7 +151,7 @@ include_once "./SelectFile.php";
                  </div>
 
                  <!-- <form method="post" action="./insert_FileA.php"> -->
-                 <div class="col-sm-5 bg-Light">
+                 <div class="col-sm-7 bg-Light">
                      <form method="post" @submit.prevent="uploadImage">
                          <h6>เอกสารประชุมร่างหลักสูตรและสรรหาผู้ทรงคุณวุฒิ</h6>
                          <input type="file" @change="convertImagesBase64" required>
@@ -235,7 +235,7 @@ include_once "./SelectFile.php";
                      </center>
 
                  </div>
-                 <div class="col-sm-5 bg-Light">
+                 <div class="col-sm-7 bg-Light">
                      <form method="post" @submit.prevent="uploadImage">
                          <h6>หนังสือเชิญเป็นกรรมการผู้ทรงวุฒิ</h6>
                          <input type="file" @change="convertImagesBase64" required>
@@ -290,7 +290,7 @@ include_once "./SelectFile.php";
                      </center>
 
                  </div>
-                 <div class="col-sm-5 bg-Light">
+                 <div class="col-sm-7 bg-Light">
 
 
                      <form method="post" @submit.prevent="uploadImage">
@@ -371,7 +371,7 @@ include_once "./SelectFile.php";
                      </center>
 
                  </div>
-                 <div class="col-sm-5 bg-Light">
+                 <div class="col-sm-7 bg-Light">
 
                      <form method="post" @submit.prevent="uploadImage">
                          <h6>หนังสือเสนอเข้าวาระที่ประชุมคณะกรรมการประจำคณะฯ</h6>
@@ -472,7 +472,7 @@ include_once "./SelectFile.php";
 
 
                  </div>
-                 <div class="col-sm-5 bg-Light">
+                 <div class="col-sm-7 bg-Light">
 
 
                      <form method="post" @submit.prevent="uploadImage">
@@ -504,7 +504,7 @@ include_once "./SelectFile.php";
                      </center>
 
                  </div>
-                 <div class="col-sm-5 bg-Light">
+                 <div class="col-sm-7 bg-Light">
 
 
                      <form method="post" @submit.prevent="uploadImage">
@@ -535,7 +535,7 @@ include_once "./SelectFile.php";
                          <p class="bg-primary text-white">ติดตามและรายงานผลการรับรองหลักสูตร จาก สกอ.</p>
                      </center>
                  </div>
-                 <div class="col-sm-5 bg-Light">
+                 <div class="col-sm-7 bg-Light">
 
                      <form method="post" @submit.prevent="uploadImage">
                          <h6>รายงานผลการรับรองหลักสูตรจาก สกอ. CHECO </h6>
@@ -562,7 +562,8 @@ include_once "./SelectFile.php";
 
      <center>
          <a href=" data.php" class="btn btn-info"><i class='fas fa-home' style='font-size:20px'></i> กลับไปหน้าหลัก</a>
-         <a href="operatReport.php" id="button1id" name="button1id" class="btn btn-success">เสร็จสิ้น</a>
+         <a href="operatReport.php" id="button1id" name="button1id" class="btn btn-success"> เสร็จสิ้น <i
+                 class='fas fa-angle-double-right' style='font-size:20px'> </i></a>
          <center>
              <?php
                 include_once "./docScript.php"; 
@@ -906,7 +907,7 @@ include_once "./SelectFile.php";
                                  <p class="bg-primary text-white">ติดตามและรายงานผลการรับรองหลักสูตร จาก สกอ.</p>
                              </center>
                          </div>
-                         <div class="col-sm-5 bg-Light">
+                         <div class="col-sm-7 bg-Light">
 
                              <form method="post" @submit.prevent="uploadImage">
                                  <h6>รายงานผลการรับรองหลักสูตรจาก สกอ. CHECO </h6>

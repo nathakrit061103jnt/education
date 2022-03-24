@@ -28,7 +28,6 @@
                 $sql_s = "SELECT * FROM `sfile` ORDER BY `s_file` DESC LIMIT 1";
                 $sql_t = "SELECT * FROM `tfile` ORDER BY `t_file` DESC LIMIT 1";
                 $sql_u = "SELECT * FROM `ufile` ORDER BY `u_file` DESC LIMIT 1";
-                $result = mysqli_query($conn, $sql);
                 $result_a = mysqli_query($conn, $sql_a); 
                 $result_b = mysqli_query($conn, $sql_b);
                 $result_c = mysqli_query($conn, $sql_c);
@@ -48,8 +47,5 @@
                 $result_r = mysqli_query($conn, $sql_r);
                 $result_s = mysqli_query($conn, $sql_s);
                 $result_t = mysqli_query($conn, $sql_t);
-                $result_u = mysqli_query($conn, $sql_u);
-
-                $data = mysqli_fetch_assoc($result); 
-                
+                $result_u = mysqli_query($conn, $sql_u);             
 ?>

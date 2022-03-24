@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Mar 16, 2022 at 08:03 AM
--- Server version: 8.0.17
--- PHP Version: 7.3.10
+-- Host: 127.0.0.1
+-- Generation Time: Mar 23, 2022 at 07:52 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -29,23 +28,15 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `aacademic` (
-  `a_id` int(11) NOT NULL,
+  `A_id` int(11) NOT NULL,
   `Aautor` varchar(100) NOT NULL,
   `Ayear` varchar(100) NOT NULL,
-  `Abook` varchar(100) NOT NULL,
-  `Aedition` varchar(100) NOT NULL,
-  `Alocation` varchar(100) NOT NULL,
-  `Apublisher` varchar(100) NOT NULL,
+  `Atite` varchar(100) NOT NULL,
+  `Atite_jour` varchar(100) NOT NULL,
+  `Avolune` varchar(100) NOT NULL,
   `Apage` varchar(100) NOT NULL,
-  `lec_id` int(11) NOT NULL COMMENT 'id บุคลากร'
+  `lec_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `aacademic`
---
-
-INSERT INTO `aacademic` (`a_id`, `Aautor`, `Ayear`, `Abook`, `Aedition`, `Alocation`, `Apublisher`, `Apage`, `lec_id`) VALUES
-(16, '่สรเดกดดก ดกแอดป', '5451', 'ดกหำเะเเ้', '12', 'สา่เดแเปฟกแ', 'ทแดอมนนรม', '4', 3);
 
 -- --------------------------------------------------------
 
@@ -289,9 +280,8 @@ CREATE TABLE `master1` (
 INSERT INTO `master1` (`mast_id`, `mast_code`, `mast_name`, `lec_id`) VALUES
 (9, '054524', 'การจัดการการผลิต', 3),
 (13, '091254', 'การจัดการการผลิต', 7),
-(16, '0901413', 'ทฤษฎีบัญชีและนโยบายการบัญชี', 3),
 (17, '0901331', '', 7),
-(18, '0901452', 'สัมมนาการภาษีอากร', 3);
+(19, '0901413', 'ทฤษฎีบัญชีและนโยบายการบัญชี', 3);
 
 -- --------------------------------------------------------
 
@@ -328,22 +318,25 @@ INSERT INTO `presenter` (`p_id`, `Pautor`, `Pyear`, `Ptite`, `Pditor`, `Ptopic`,
 --
 
 CREATE TABLE `research` (
-  `Res_id` int(8) NOT NULL,
+  `R_id` int(11) NOT NULL,
   `Rautor` varchar(100) NOT NULL,
   `Ryear` varchar(100) NOT NULL,
   `Rtite` varchar(100) NOT NULL,
-  `Rtite_jour` varchar(100) NOT NULL,
-  `Rvolune` varchar(100) NOT NULL,
+  `Rditor` varchar(100) NOT NULL,
+  `Rtopic` varchar(100) NOT NULL,
+  `Rdate` varchar(100) NOT NULL,
+  `Rlocation` varchar(100) NOT NULL,
+  `Rpublisher` varchar(100) NOT NULL,
   `Rpage` varchar(100) NOT NULL,
-  `lec_id` int(11) NOT NULL COMMENT 'id บุคลากร'
+  `lec_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `research`
 --
 
-INSERT INTO `research` (`Res_id`, `Rautor`, `Ryear`, `Rtite`, `Rtite_jour`, `Rvolune`, `Rpage`, `lec_id`) VALUES
-(14, 'มานิตา ชานานนน', '2564', 'การวาดภาพเสมือนของดอกไม้', 'งานวิจัยแสดงความเห็น', '16', '45', 3);
+INSERT INTO `research` (`R_id`, `Rautor`, `Ryear`, `Rtite`, `Rditor`, `Rtopic`, `Rdate`, `Rlocation`, `Rpublisher`, `Rpage`, `lec_id`) VALUES
+(2, 'RDTTTTRRT', 'ERTEDRFTGY', 'SERTY', 'SERTGYU', 'ESDRFTGYHU', 'WERDTY', 'SDFWSERT', 'AWSERT', 'SEDR', 3);
 
 -- --------------------------------------------------------
 
@@ -400,7 +393,7 @@ INSERT INTO `treatise` (`tr_id`, `Tautor`, `Tyear`, `Tbook`, `Tedition`, `Tlocat
 -- Indexes for table `aacademic`
 --
 ALTER TABLE `aacademic`
-  ADD PRIMARY KEY (`a_id`);
+  ADD PRIMARY KEY (`A_id`);
 
 --
 -- Indexes for table `admin`
@@ -460,7 +453,7 @@ ALTER TABLE `presenter`
 -- Indexes for table `research`
 --
 ALTER TABLE `research`
-  ADD PRIMARY KEY (`Res_id`);
+  ADD PRIMARY KEY (`R_id`);
 
 --
 -- Indexes for table `teachmore`
@@ -482,7 +475,7 @@ ALTER TABLE `treatise`
 -- AUTO_INCREMENT for table `aacademic`
 --
 ALTER TABLE `aacademic`
-  MODIFY `a_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `A_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `admin`
@@ -500,7 +493,7 @@ ALTER TABLE `bachelor`
 -- AUTO_INCREMENT for table `conferences`
 --
 ALTER TABLE `conferences`
-  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `course`
@@ -530,7 +523,7 @@ ALTER TABLE `lecturer`
 -- AUTO_INCREMENT for table `master1`
 --
 ALTER TABLE `master1`
-  MODIFY `mast_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `mast_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `presenter`
@@ -542,7 +535,7 @@ ALTER TABLE `presenter`
 -- AUTO_INCREMENT for table `research`
 --
 ALTER TABLE `research`
-  MODIFY `Res_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `R_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `teachmore`

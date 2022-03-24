@@ -42,7 +42,7 @@
     <!-- การลิ้ง sweetalert2 เเบบ cdn  -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- การลิ้ง icon  -->
-    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+     <script src='https://use.fontawesome.com/releases/v5.15.4/js/all.js' crossorigin='anonymous'></script>
 
 </head>
 <style>

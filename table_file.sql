@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Mar 02, 2022 at 10:35 AM
--- Server version: 8.0.17
--- PHP Version: 7.3.10
+-- Host: 127.0.0.1
+-- Generation Time: Mar 23, 2022 at 07:52 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -105,13 +104,6 @@ CREATE TABLE `efile` (
   `e_file` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `efile`
---
-
-INSERT INTO `efile` (`e_id`, `e_file`) VALUES
-(3, '621632408d735.doc');
-
 -- --------------------------------------------------------
 
 --
@@ -122,13 +114,6 @@ CREATE TABLE `gfile` (
   `g_id` int(11) NOT NULL,
   `g_file` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `gfile`
---
-
-INSERT INTO `gfile` (`g_id`, `g_file`) VALUES
-(3, '621b8223ba601.pdf');
 
 -- --------------------------------------------------------
 
@@ -141,13 +126,6 @@ CREATE TABLE `hfile` (
   `h_file` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `hfile`
---
-
-INSERT INTO `hfile` (`h_id`, `h_file`) VALUES
-(3, '621b89859c9fc.pdf');
-
 -- --------------------------------------------------------
 
 --
@@ -158,13 +136,6 @@ CREATE TABLE `ifile` (
   `i_id` int(11) NOT NULL,
   `i_file` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `ifile`
---
-
-INSERT INTO `ifile` (`i_id`, `i_file`) VALUES
-(3, '621b8b8502825.doc');
 
 -- --------------------------------------------------------
 
@@ -177,13 +148,6 @@ CREATE TABLE `jfile` (
   `j_file` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `jfile`
---
-
-INSERT INTO `jfile` (`j_id`, `j_file`) VALUES
-(2, '621c9def236ad.doc');
-
 -- --------------------------------------------------------
 
 --
@@ -194,13 +158,6 @@ CREATE TABLE `kfile` (
   `k_id` int(11) NOT NULL,
   `k_file` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `kfile`
---
-
-INSERT INTO `kfile` (`k_id`, `k_file`) VALUES
-(2, '621c9f33a6d87.doc');
 
 -- --------------------------------------------------------
 
@@ -213,13 +170,6 @@ CREATE TABLE `lfile` (
   `l_file` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `lfile`
---
-
-INSERT INTO `lfile` (`l_id`, `l_file`) VALUES
-(2, '621c9f4bd01bf.doc');
-
 -- --------------------------------------------------------
 
 --
@@ -230,13 +180,6 @@ CREATE TABLE `mfile` (
   `m_id` int(11) NOT NULL,
   `m_file` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `mfile`
---
-
-INSERT INTO `mfile` (`m_id`, `m_file`) VALUES
-(2, '621c9f5d12f3f.doc');
 
 -- --------------------------------------------------------
 
@@ -249,13 +192,6 @@ CREATE TABLE `nfile` (
   `n_file` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `nfile`
---
-
-INSERT INTO `nfile` (`n_id`, `n_file`) VALUES
-(2, '621ca9dac1859.pdf');
-
 -- --------------------------------------------------------
 
 --
@@ -266,13 +202,6 @@ CREATE TABLE `ofile` (
   `o_id` int(11) NOT NULL,
   `o_file` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `ofile`
---
-
-INSERT INTO `ofile` (`o_id`, `o_file`) VALUES
-(2, '621ca9eb177ab.pdf');
 
 -- --------------------------------------------------------
 
@@ -285,13 +214,6 @@ CREATE TABLE `pfile` (
   `p_file` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `pfile`
---
-
-INSERT INTO `pfile` (`p_id`, `p_file`) VALUES
-(5, '621ca9f6d3954.pdf');
-
 -- --------------------------------------------------------
 
 --
@@ -302,13 +224,6 @@ CREATE TABLE `qfile` (
   `q_id` int(11) NOT NULL,
   `q_file` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `qfile`
---
-
-INSERT INTO `qfile` (`q_id`, `q_file`) VALUES
-(3, '621caa05615f1.doc');
 
 -- --------------------------------------------------------
 
@@ -321,13 +236,6 @@ CREATE TABLE `rfile` (
   `r_file` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `rfile`
---
-
-INSERT INTO `rfile` (`r_id`, `r_file`) VALUES
-(2, '621caa12b9ce5.doc');
-
 -- --------------------------------------------------------
 
 --
@@ -338,13 +246,6 @@ CREATE TABLE `sfile` (
   `s_id` int(11) NOT NULL,
   `s_file` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `sfile`
---
-
-INSERT INTO `sfile` (`s_id`, `s_file`) VALUES
-(2, '621caa1ec814d.pdf');
 
 -- --------------------------------------------------------
 
@@ -357,13 +258,6 @@ CREATE TABLE `tfile` (
   `t_file` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `tfile`
---
-
-INSERT INTO `tfile` (`t_id`, `t_file`) VALUES
-(3, '621caa31cdc04.jpeg');
-
 -- --------------------------------------------------------
 
 --
@@ -374,13 +268,6 @@ CREATE TABLE `ufile` (
   `u_id` int(11) NOT NULL,
   `u_file` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `ufile`
---
-
-INSERT INTO `ufile` (`u_id`, `u_file`) VALUES
-(2, '621caa393770c.jpeg');
 
 -- --------------------------------------------------------
 

@@ -1,17 +1,21 @@
 <?php
 
-            if (isset($_POST["submitUpdateAacademic"])) {
-                //นำเข้าไฟล์ การเชื่อมต่อฐานข้อมูล
-               include_once("./api/config/connect_db_1.php");
+if (isset($_POST["submitUpdateAacademic"])) {
+    //นำเข้าไฟล์ การเชื่อมต่อฐานข้อมูล
+    include_once("./api/config/connect_db_1.php");
 
-                //คำสั่ง SQL บันทึกข้อมูลลงฐานข้อมูล
-                 $sqlUp = "UPDATE aacademic SET Aautor = '{$_POST["Aautor"]}', Ayear = '{$_POST["Ayear"]}', Abook = '{$_POST["Abook"]}' ,
-                 Aedition = '{$_POST["Aedition"]}' , Alocation = '{$_POST["Alocation"]}' , Apublisher = '{$_POST["Apublisher"]}', Apage = '{$_POST["Apage"]}'
-                          WHERE a_id = '{$_POST["a_id"]}';";
+    //คำสั่ง SQL บันทึกข้อมูลลงฐานข้อมูล
+    // $sqlUp = "UPDATE aacademic SET Aautor = '{$_POST["Aautor"]}', Ayear = '{$_POST["Ayear"]}', Abook = '{$_POST["Abook"]}' ,
+    //              Aedition = '{$_POST["Aedition"]}' , Alocation = '{$_POST["Alocation"]}' , Apublisher = '{$_POST["Apublisher"]}', Apage = '{$_POST["Apage"]}'
+    //                       WHERE a_id = '{$_POST["a_id"]}';";
 
-                if (mysqli_query($conn, $sqlUp)) {
-                    echo
-                        "<script> 
+    $sqlUp = "UPDATE aacademic SET Aautor = '{$_POST["Aautor"]}', Ayear = '{$_POST["Ayear"]}', Atite = '{$_POST["Atite"]}' ,
+                 Atite_jour = '{$_POST["Atite_jour"]}' , Avolune = '{$_POST["Avolune"]}' , Apage = '{$_POST["Apage"]}' 
+                          WHERE A_id = '{$_POST["A_id"]}';";
+
+    if (mysqli_query($conn, $sqlUp)) {
+        echo
+        "<script> 
                        Swal.fire({
                         position: 'center',
                         icon: 'success',
@@ -20,18 +24,15 @@
                         timer: 1500
                     }).then(()=>  location = 'form.php?lec_id={$_POST["lec_id"]}')
                 </script>";
-                } else {
-                    echo
-                        "<script> 
+    } else {
+        echo
+        "<script> 
                     Swal.fire({
                         icon: 'error',
                         title: 'เเก้ไขข้อมูลไม่สำเร็จ', 
                         text: 'โปรดตรวจสอบความถูกต้องของข้อมูล!',
                     }) 
                 </script>";
-                }
-                // mysqli_close($conn);
-            }
-
-
-            ?>
+    }
+    // mysqli_close($conn);
+}

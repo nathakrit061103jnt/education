@@ -12,11 +12,12 @@
 
     if (mysqli_query($conn, $sql)) {
         echo  "<script> location = './form.php?lec_id=$lec_id'; </script>";
+        
     } else {
         echo  "ไม่สามารถเเก้ไขข้อมูลได้";
     }
 
-mysqli_close($conn);
+// mysqli_close($conn);
 ?>
 
 

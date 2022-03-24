@@ -7,7 +7,7 @@ $password = "cc746e84";
 $database="heroku_67a8f7daac85d18";
 
 
-// // local
+// local
 // $servername = "localhost";
 // $username = "root";
 // $password = "12345678";

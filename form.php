@@ -1,5 +1,5 @@
 <?php
-include_once "./SelectAll.php"; 
+include_once "./SelectAll.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,11 +23,13 @@ include_once "./SelectAll.php";
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
         integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
+
+    <!-- <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> -->
     <!-- การลิ้ง sweetalert2 เเบบ cdn  -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- การลิ้ง icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <script src='https://use.fontawesome.com/releases/v5.15.4/js/all.js' crossorigin='anonymous'></script>
 
     <!-- vuejs 2 -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
@@ -86,7 +88,7 @@ include_once "./SelectAll.php";
 <body>
 
 
-    <div id="app">
+    <div>
         <a href="data.php" class="btn btn-primary" style="color:white"><i class='fas fa-home'
                 style='font-size:20px'></i>
             กลับไปหน้าแรก</a>
@@ -104,11 +106,11 @@ include_once "./SelectAll.php";
                     <label for="lname">สกุล</label>
                     <input type="text" name="last" value="<?= $data["lname"] ?>">
                     <label for="position">ตำแหน่งทางวิชาการ</label>
-                    <input type="text" name="position" value="<?= $data["position"];?>">
-                    <input type="hidden" name="lec_id" value="<?= $data["lec_id"];?>">
+                    <input type="text" name="position" value="<?= $data["position"]; ?>">
+                    <input type="hidden" name="lec_id" value="<?= $data["lec_id"]; ?>">
                     <div class="btn-group btn-group-sm">
-                        <button class="btn btn-warning" name="submit_edit_lecturer" value="submit_edit_lecturer"
-                            type="submit">
+                        <button class="btn btn-warning" name="submit_edit_lecturer" style="color:white"
+                            value="submit_edit_lecturer" type="submit"><i class='fas fa-pen'></i>
                             เเก้ไข
                         </button>
                     </div>
@@ -130,9 +132,9 @@ include_once "./SelectAll.php";
                             </thead>
                             <tbody>
                                 <?php
-                $i = 1;
-                while ($item = mysqli_fetch_assoc($result_edu)) { 
-                    ?>
+                                $i = 1;
+                                while ($item = mysqli_fetch_assoc($result_edu)) {
+                                ?>
                                 <tr>
                                     <td class="" width="15%"><?php echo $i; ?></td>
                                     <td><?php echo $item["Tb_year"]; ?></td>
@@ -145,7 +147,7 @@ include_once "./SelectAll.php";
                                                 <i class="fas fa-edit"> </i>
                                             </button>
                                             <a class="btn btn-danger"
-                                                href="form.php?deleteHisConfirm=req&Tr_id=<?php echo $item["Tr_id"]; ?>&lec_id=<?=$lec_id?>">
+                                                href="form.php?deleteHisConfirm=req&Tr_id=<?php echo $item["Tr_id"]; ?>&lec_id=<?= $lec_id ?>">
                                                 <i class="fas fa-trash"> </i>
                                             </a>
                                         </div>
@@ -187,7 +189,7 @@ include_once "./SelectAll.php";
                                                                     value="<?php echo $item["Tb_titute"]; ?>"
                                                                     name="Tb_titute">
                                                                 <input type="hidden" class="form-control" placeholder=""
-                                                                    value="<?=$lec_id?>" name="lec_id">
+                                                                    value="<?= $lec_id ?>" name="lec_id">
                                                                 <input type="hidden" class="form-control" placeholder=""
                                                                     value="<?php echo $item["Tr_id"]; ?>"
                                                                     name="Tr_id"><br>
@@ -207,14 +209,14 @@ include_once "./SelectAll.php";
                                         </div>
                                     </div>
                                 </form>
-                                <?php 
-                            
-                   $i++;
-                }
-                // end while loop
-                include_once "./dialogDeleteHis.php"; 
-                include_once "./update_education.php"; 
-                 ?>
+                                <?php
+
+                                    $i++;
+                                }
+                                // end while loop
+                                include_once "./dialogDeleteHis.php";
+                                include_once "./update_education.php";
+                                ?>
                             </tbody>
                         </table>
                         <div class="row">
@@ -231,7 +233,7 @@ include_once "./SelectAll.php";
                                     <div class="col-md-4">
                                         <p>สถาบันการศึกษา</p>
                                         <input type="text" class="form-control" placeholder="" name="Tb_titute">
-                                        <input type="hidden" class="form-control" placeholder="" value="<?=$lec_id?>"
+                                        <input type="hidden" class="form-control" placeholder="" value="<?= $lec_id ?>"
                                             name="lec_id"><br>
                                     </div><br>
                                     <div class="">
@@ -258,16 +260,16 @@ include_once "./SelectAll.php";
                     <br>
                     <table class="table" style="width: 75%;">
                         <?php
-                while ($row = mysqli_fetch_assoc($result_tre)) { 
-                 ?>
+                        while ($row = mysqli_fetch_assoc($result_tre)) {
+                        ?>
                         <tr>
-                            <td><?php echo "" .$row["Tautor"] .  ". ",
-                     "(" .$row["Tyear"] .  "). ",
-                     "" .$row["Tbook"] .  ". ",
-                     "พิมพ์ครั้งที่ " .$row["Tedition"] .  ". ",
-                     "" .$row["Tlocation"] .  " ",
-                     ": " .$row["Tpublisher"] .  ". ",
-                     "" .$row["Tpage"] .  " หน้า. <br>"; ?></td>
+                            <td><?php echo "" . $row["Tautor"] .  ". ",
+                                    "(" . $row["Tyear"] .  "). ",
+                                    "" . $row["Tbook"] .  ". ",
+                                    "พิมพ์ครั้งที่ " . $row["Tedition"] .  ". ",
+                                    "" . $row["Tlocation"] .  " ",
+                                    ": " . $row["Tpublisher"] .  ". ",
+                                    "" . $row["Tpage"] .  " หน้า. <br>"; ?></td>
                             <td class="text-center">
                                 <div class="btn-group btn-group-sm">
                                     <button class="btn" data-bs-toggle="modal"
@@ -275,7 +277,7 @@ include_once "./SelectAll.php";
                                         <i class="fas fa-edit" style="font-size:18px;"> </i>
                                     </button>
                                     <a class="btn"
-                                        href="form.php?deleteTreConfirm=req&tr_id=<?php echo $row["tr_id"]; ?>&lec_id=<?=$lec_id?>">
+                                        href="form.php?deleteTreConfirm=req&tr_id=<?php echo $row["tr_id"]; ?>&lec_id=<?= $lec_id ?>">
                                         <i class="fas fa-trash" style="font-size:18px;"> </i>
                                     </a>
                                 </div>
@@ -334,7 +336,7 @@ include_once "./SelectAll.php";
                                                         <input type="text" class="form-control" placeholder=""
                                                             value="<?php echo $row["Tpage"]; ?>" name="Tpage">
                                                         <input type="hidden" class="form-control" placeholder=""
-                                                            value="<?=$lec_id?>" name="lec_id">
+                                                            value="<?= $lec_id ?>" name="lec_id">
                                                         <input type="hidden" class="form-control" placeholder=""
                                                             value="<?php echo $row["tr_id"]; ?>" name="tr_id"><br>
                                                     </div><br>
@@ -352,12 +354,12 @@ include_once "./SelectAll.php";
                                 </div>
                             </div>
                         </form>
-                        <?php 
-                }
-                // end while loop
-                include_once "./dialogDeleteTre.php"; 
-                include_once "./update_treatise.php"; 
-                 ?>
+                        <?php
+                        }
+                        // end while loop
+                        include_once "./dialogDeleteTre.php";
+                        include_once "./update_treatise.php";
+                        ?>
                     </table>
                 </div>
 
@@ -448,7 +450,7 @@ include_once "./SelectAll.php";
                                                     <input id="Tpage" name="Tpage" type="text" placeholder=""
                                                         class="form-control input-md">
                                                     <input type="hidden" class="form-control" placeholder=""
-                                                        value="<?=$lec_id?>" name="lec_id">
+                                                        value="<?= $lec_id ?>" name="lec_id">
                                                 </div>
                                             </div>
                                             <!-- Modal footer -->
@@ -468,29 +470,34 @@ include_once "./SelectAll.php";
                 <!-- ------------------------------------2 -->
                 <div class="container mt-3">
                     <!-- research-->
-                    <b>4.2 บทความวิจัย </b><br><br>
-
+                    <b>4.2 บทความวิจัย</b><br><br>
                     <button type="button" class="btn btn-info text-white" data-bs-toggle="modal"
                         data-bs-target="#myModal2">
                         <i class='fas fa-file-signature' style='font-size:24px'></i> กรอกข้อมูลบทความวิจัย
                     </button>
-                    <br>
 
                     <table class="table" style="width: 75%;">
                         <?php
-                while ($row = mysqli_fetch_assoc($result_res)) { 
-                 ?>
+                        while ($row = mysqli_fetch_assoc($result_res)) {
+                        ?>
                         <tr>
-                            <td><?php  echo "" .$row["Rautor"] .  ". ","(" .$row["Ryear"] .  "). ","" .$row["Rtite"] .  ". ","" .$row["Rtite_jour"] .  ", ","" .$row["Rvolune"] .  " : ","" .$row["Rpage"] .  ". "; ?>
-                            </td>
+                            <td><?php echo "" . $row["Rautor"] .  ". ",
+                                    "(" . $row["Ryear"] .  "). ",
+                                    "" . $row["Rtite"] .  ". ",
+                                    "" . $row["Rditor"] .  ", ",
+                                    "" . $row["Rtopic"] .  " : ",
+                                    "" . $row["Rdate"] .  ". ",
+                                    "" . $row["Rlocation"] .  ", ",
+                                    "" . $row["Rpublisher"] .  " : ",
+                                    "" . $row["Rpage"] .  ".  <br>"; ?></td>
                             <td class="text-center">
                                 <div class="btn-group btn-group-sm">
                                     <button class="btn" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal2<?php echo $row["Res_id"]; ?>">
+                                        data-bs-target="#exampleModal2<?php echo $row["R_id"]; ?>">
                                         <i class="fas fa-edit" style="font-size:18px;"> </i>
                                     </button>
                                     <a class="btn"
-                                        href="form.php?deleteResConfirm=req&Res_id=<?php echo $row["Res_id"]; ?>&lec_id=<?=$lec_id?>">
+                                        href="form.php?deleteResConfirm=req&R_id=<?php echo $row["R_id"]; ?>&lec_id=<?= $lec_id ?>">
                                         <i class="fas fa-trash" style="font-size:18px;"> </i>
                                     </a>
                                 </div>
@@ -499,13 +506,13 @@ include_once "./SelectAll.php";
 
                         <!-- Modal -->
                         <form method="post">
-                            <div class="modal fade" id="exampleModal2<?php echo $row["Res_id"]; ?>" tabindex="-1"
+                            <div class="modal fade" id="exampleModal2<?php echo $row["R_id"]; ?>" tabindex="-1"
                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
 
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">บทความวิจัย</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">ประชุมวิชาการ(ตัวนำเสนอ)</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close">
                                             </button>
@@ -525,28 +532,43 @@ include_once "./SelectAll.php";
                                                             value="<?php echo $row["Ryear"]; ?>" name="Ryear">
                                                     </div>
                                                     <div class="col-md-12">
-                                                        <p>ชื่อบทความ</p>
+                                                        <p>ชื่อบทความ/เอกสาร :</p>
                                                         <input type="text" class="form-control" placeholder=""
                                                             value="<?php echo $row["Rtite"]; ?>" name="Rtite">
                                                     </div>
                                                     <div class="col-md-12">
-                                                        <p>ชื่อวารสาร</p>
+                                                        <p>ใน ชื่อบรรณาธิการ</p>
                                                         <input type="text" class="form-control" placeholder=""
-                                                            value="<?php echo $row["Rtite_jour"]; ?>" name="Rtite_jour">
+                                                            value="<?php echo $row["Rditor"]; ?>" name="Rditor">
                                                     </div>
                                                     <div class="col-md-12">
-                                                        <p>ปีที่(ฉบับที่) :</p>
+                                                        <p>ชื่อหัวข้อ</p>
                                                         <input type="text" class="form-control" placeholder=""
-                                                            value="<?php echo $row["Rvolune"]; ?>" name="Rvolune">
+                                                            value="<?php echo $row["Rtopic"]; ?>" name="Rtopic">
                                                     </div>
                                                     <div class="col-md-12">
-                                                        <p>เลขหน้า</p>
+                                                        <p>วัน/เดือน/ปี</p>
+                                                        <input type="text" class="form-control" placeholder=""
+                                                            value="<?php echo $row["Rdate"]; ?>" name="Rdate">
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <p>สถานที่พิมพ์</p>
+                                                        <input type="text" class="form-control" placeholder=""
+                                                            value="<?php echo $row["Rlocation"]; ?>" name="Rlocation">
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <p>สำนักพิมพ์</p>
+                                                        <input type="text" class="form-control" placeholder=""
+                                                            value="<?php echo $row["Rpublisher"]; ?>" name="Rpublisher">
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <p>หน้า</p>
                                                         <input type="text" class="form-control" placeholder=""
                                                             value="<?php echo $row["Rpage"]; ?>" name="Rpage">
                                                         <input type="hidden" class="form-control" placeholder=""
-                                                            value="<?=$lec_id?>" name="lec_id">
+                                                            value="<?= $lec_id ?>" name="lec_id">
                                                         <input type="hidden" class="form-control" placeholder=""
-                                                            value="<?php echo $row["Res_id"]; ?>" name="Res_id"><br>
+                                                            value="<?php echo $row["R_id"]; ?>" name="R_id"><br>
                                                     </div><br>
 
                                                 </div>
@@ -563,12 +585,12 @@ include_once "./SelectAll.php";
                                 </div>
                             </div>
                         </form>
-                        <?php 
-                }
-                // end while loop
-                include_once "./dialogDeleteRes.php"; 
-                include_once ".//update_research.php"; 
-                 ?>
+                        <?php
+                        }
+                        // end while loop
+                        include_once "./dialogDeleteRes.php";
+                        include_once "./update_research.php";
+                        ?>
                     </table>
                 </div>
 
@@ -585,16 +607,14 @@ include_once "./SelectAll.php";
 
                             <!-- Modal body -->
                             <div class="modal-body">
-
                                 <form class="form-horizontal" method="post" action="./insert_research.php">
                                     <fieldset>
                                         <!-- Text input-->
-                                        <div class="form-group">
+                                        <div class=" form-group">
                                             <label class="col-md-12 control-label" for="Rautor">ชื่อผู้เขียน</label>
                                             <div class="col-md-12">
                                                 <input id="Rautor" name="Rautor" type="text" placeholder=""
                                                     class="form-control input-md">
-
                                             </div>
                                         </div>
 
@@ -610,7 +630,8 @@ include_once "./SelectAll.php";
 
                                         <!-- Text input-->
                                         <div class="form-group">
-                                            <label class="col-md-12 control-label" for="Rtite">ชื่อบทความ</label>
+                                            <label class="col-md-12 control-label" for="Rtite">ชื่อบทความ/เอกสาร
+                                                :</label>
                                             <div class="col-md-12">
                                                 <input id="Rtite" name="Rtite" type="text" placeholder=""
                                                     class="form-control input-md">
@@ -620,9 +641,10 @@ include_once "./SelectAll.php";
 
                                         <!-- Text input-->
                                         <div class="form-group">
-                                            <label class="col-md-12 control-label" for="Rtite_jour">ชื่อวารสาร</label>
+                                            <label class="col-md-12 control-label" for="Rditor">ใน
+                                                ชื่อบรรณาธิการ</label>
                                             <div class="col-md-12">
-                                                <input id="Rtite_jour" name="Rtite_jour" type="text" placeholder=""
+                                                <input id="Rditor" name="Rditor" type="text" placeholder=""
                                                     class="form-control input-md">
 
                                             </div>
@@ -630,10 +652,9 @@ include_once "./SelectAll.php";
 
                                         <!-- Text input-->
                                         <div class="form-group">
-                                            <label class="col-md-12 control-label" for="Rvolune">ปีที่(ฉบับที่)
-                                                :</label>
+                                            <label class="col-md-12 control-label" for="Rtopic">ชื่อหัวข้อ</label>
                                             <div class="col-md-12">
-                                                <input id="Rvolune" name="Rvolune" type="text" placeholder=""
+                                                <input id="Rtopic" name="Rtopic" type="text" placeholder=""
                                                     class="form-control input-md">
 
                                             </div>
@@ -641,12 +662,41 @@ include_once "./SelectAll.php";
 
                                         <!-- Text input-->
                                         <div class="form-group">
-                                            <label class="col-md-12 control-label" for="Rpage">เลขหน้า</label>
+                                            <label class="col-md-12 control-label" for="Rdate">วัน/เดือน/ปี</label>
+                                            <div class="col-md-12">
+                                                <input id="Rdate" name="Rdate" type="text" placeholder=""
+                                                    class="form-control input-md">
+
+                                            </div>
+                                        </div>
+
+                                        <!-- Text input-->
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" for="Rlocation">สถานที่พิมพ์</label>
+                                            <div class="col-md-12">
+                                                <input id="Rlocation" name="Rlocation" type="text" placeholder=""
+                                                    class="form-control input-md">
+
+                                            </div>
+                                        </div>
+
+                                        <!-- Text input-->
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" for="Rpublisher">สำนักพิมพ์</label>
+                                            <div class="col-md-12">
+                                                <input id="Rpublisher" name="Rpublisher" type="text" placeholder=""
+                                                    class="form-control input-md">
+                                            </div>
+                                        </div>
+
+                                        <!-- Text input-->
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" for="Rpage">หน้า</label>
                                             <div class="col-md-12">
                                                 <input id="Rpage" name="Rpage" type="text" placeholder=""
                                                     class="form-control input-md">
                                                 <input type="hidden" class="form-control" placeholder=""
-                                                    value="<?=$lec_id?>" name="lec_id">
+                                                    value="<?= $lec_id ?>" name="lec_id">
                                             </div>
                                         </div>
 
@@ -656,13 +706,11 @@ include_once "./SelectAll.php";
                                                 name="submitResearch">บันทึก</button>
                                             <button type="button" class="btn btn-danger"
                                                 data-bs-dismiss="modal">ยกเลิก</button>
-
+                                        </div>
 
                                     </fieldset>
                                 </form>
-
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -677,18 +725,18 @@ include_once "./SelectAll.php";
 
                     <table class="table" style="width: 75%;">
                         <?php
-                while ($row = mysqli_fetch_assoc($result_pre)) { 
-                 ?>
+                        while ($row = mysqli_fetch_assoc($result_pre)) {
+                        ?>
                         <tr>
-                            <td><?php  echo "" .$row["Pautor"] .  ". ",
-                     "(" .$row["Pyear"] .  "). ",
-                     "" .$row["Ptite"] .  ". ",
-                     "" .$row["Pditor"] .  ", ",
-                     "" .$row["Ptopic"] .  " : ",
-                     "" .$row["Pdate"] .  ". ",
-                     "" .$row["Plocation"] .  ", ",
-                     "" .$row["Ppublisher"] .  " : ",
-                     "" .$row["Ppage"] .  ".  <br>"; ?></td>
+                            <td><?php echo "" . $row["Pautor"] .  ". ",
+                                    "(" . $row["Pyear"] .  "). ",
+                                    "" . $row["Ptite"] .  ". ",
+                                    "" . $row["Pditor"] .  ", ",
+                                    "" . $row["Ptopic"] .  " : ",
+                                    "" . $row["Pdate"] .  ". ",
+                                    "" . $row["Plocation"] .  ", ",
+                                    "" . $row["Ppublisher"] .  " : ",
+                                    "" . $row["Ppage"] .  ".  <br>"; ?></td>
                             <td class="text-center">
                                 <div class="btn-group btn-group-sm">
                                     <button class="btn" data-bs-toggle="modal"
@@ -696,7 +744,7 @@ include_once "./SelectAll.php";
                                         <i class="fas fa-edit" style="font-size:18px;"> </i>
                                     </button>
                                     <a class="btn"
-                                        href="form.php?deletePreConfirm=req&p_id=<?php echo $row["p_id"]; ?>&lec_id=<?=$lec_id?>">
+                                        href="form.php?deletePreConfirm=req&p_id=<?php echo $row["p_id"]; ?>&lec_id=<?= $lec_id ?>">
                                         <i class="fas fa-trash" style="font-size:18px;"> </i>
                                     </a>
                                 </div>
@@ -765,7 +813,7 @@ include_once "./SelectAll.php";
                                                         <input type="text" class="form-control" placeholder=""
                                                             value="<?php echo $row["Ppage"]; ?>" name="Ppage">
                                                         <input type="hidden" class="form-control" placeholder=""
-                                                            value="<?=$lec_id?>" name="lec_id">
+                                                            value="<?= $lec_id ?>" name="lec_id">
                                                         <input type="hidden" class="form-control" placeholder=""
                                                             value="<?php echo $row["p_id"]; ?>" name="p_id"><br>
                                                     </div><br>
@@ -784,12 +832,12 @@ include_once "./SelectAll.php";
                                 </div>
                             </div>
                         </form>
-                        <?php 
-                }
-                // end while loop
-                include_once "./dialogDeletePre.php"; 
-                include_once "./update_presenter.php"; 
-                 ?>
+                        <?php
+                        }
+                        // end while loop
+                        include_once "./dialogDeletePre.php";
+                        include_once "./update_presenter.php";
+                        ?>
                     </table>
                 </div>
 
@@ -895,7 +943,7 @@ include_once "./SelectAll.php";
                                                 <input id="Ppage" name="Ppage" type="text" placeholder=""
                                                     class="form-control input-md">
                                                 <input type="hidden" class="form-control" placeholder=""
-                                                    value="<?=$lec_id?>" name="lec_id">
+                                                    value="<?= $lec_id ?>" name="lec_id">
                                             </div>
                                         </div>
 
@@ -924,25 +972,24 @@ include_once "./SelectAll.php";
 
                     <table class="table" style="width: 75%;">
                         <?php
-                while ($row = mysqli_fetch_assoc($result_Aac)) { 
-                 ?>
+                        while ($row = mysqli_fetch_assoc($result_Aac)) {
+                        ?>
                         <tr>
-                            <td><?php  echo "" .$row["Aautor"] .  ". ",
-                     "(" .$row["Ayear"] .  "). ",
-                     "" .$row["Abook"] .  ". ",
-                     "พิมพ์ครั้งที่ " .$row["Aedition"] .  ". ",
-                     "" .$row["Alocation"] .  " ",
-                     ": " .$row["Apublisher"] .  ". ",
-                     "" .$row["Apage"] .  " หน้า. <br>"; ?></td>
-
+                            <td><?php echo "" . $row["Aautor"] .  ". ",
+                                    "(" . $row["Ayear"] .  "). ",
+                                    "" . $row["Atite"] .  ". ",
+                                    "" . $row["Atite_jour"] .  ", ",
+                                    "" . $row["Avolune"] .  " : ",
+                                    "" . $row["Apage"] .  ". "; ?>
+                            </td>
                             <td class="text-center">
                                 <div class="btn-group btn-group-sm">
                                     <button class="btn" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal4<?php echo $row["a_id"]; ?>">
+                                        data-bs-target="#exampleModal4<?php echo $row["A_id"]; ?>">
                                         <i class="fas fa-edit" style="font-size:18px;"> </i>
                                     </button>
                                     <a class="btn"
-                                        href="form.php?deleteAacConfirm=req&a_id=<?php echo $row["a_id"]; ?>&lec_id=<?=$lec_id?>">
+                                        href="form.php?deleteAacConfirm=req&A_id=<?php echo $row["A_id"]; ?>&lec_id=<?= $lec_id ?>">
                                         <i class="fas fa-trash" style="font-size:18px;"> </i>
                                     </a>
                                 </div>
@@ -951,13 +998,13 @@ include_once "./SelectAll.php";
 
                         <!-- Modal -->
                         <form method="post">
-                            <div class="modal fade" id="exampleModal4<?php echo $row["a_id"]; ?>" tabindex="-1"
+                            <div class="modal fade" id="exampleModal4<?php echo $row["A_id"]; ?>" tabindex="-1"
                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
 
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">บทความวิชาการ</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">บทความวิจัย</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close">
                                             </button>
@@ -967,7 +1014,7 @@ include_once "./SelectAll.php";
 
                                                 <div class="row">
                                                     <div class="col-md-12">
-                                                        <p>ชื่อผู้แต่ง</p>
+                                                        <p>ชื่อผู้เขียน</p>
                                                         <input type="text" class="form-control" placeholder=""
                                                             value="<?php echo $row["Aautor"]; ?>" name="Aautor">
                                                     </div>
@@ -977,33 +1024,28 @@ include_once "./SelectAll.php";
                                                             value="<?php echo $row["Ayear"]; ?>" name="Ayear">
                                                     </div>
                                                     <div class="col-md-12">
-                                                        <p>ชื่อหนังสือ</p>
+                                                        <p>ชื่อบทความ</p>
                                                         <input type="text" class="form-control" placeholder=""
-                                                            value="<?php echo $row["Abook"]; ?>" name="Abook">
+                                                            value="<?php echo $row["Atite"]; ?>" name="Atite">
                                                     </div>
                                                     <div class="col-md-12">
-                                                        <p>พิมพ์ครั้งที่</p>
+                                                        <p>ชื่อวารสาร</p>
                                                         <input type="text" class="form-control" placeholder=""
-                                                            value="<?php echo $row["Aedition"]; ?>" name="Aedition">
+                                                            value="<?php echo $row["Atite_jour"]; ?>" name="Atite_jour">
                                                     </div>
                                                     <div class="col-md-12">
-                                                        <p>สถานที่พิมพ์ :</p>
+                                                        <p>ปีที่(ฉบับที่) :</p>
                                                         <input type="text" class="form-control" placeholder=""
-                                                            value="<?php echo $row["Alocation"]; ?>" name="Alocation">
+                                                            value="<?php echo $row["Avolune"]; ?>" name="Avolune">
                                                     </div>
                                                     <div class="col-md-12">
-                                                        <p>สำนักพิมพ์</p>
-                                                        <input type="text" class="form-control" placeholder=""
-                                                            value="<?php echo $row["Apublisher"]; ?>" name="Apublisher">
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <p>จำนวนหน้าที่พิมพ์</p>
+                                                        <p>เลขหน้า</p>
                                                         <input type="text" class="form-control" placeholder=""
                                                             value="<?php echo $row["Apage"]; ?>" name="Apage">
                                                         <input type="hidden" class="form-control" placeholder=""
-                                                            value="<?=$lec_id?>" name="lec_id">
+                                                            value="<?= $lec_id ?>" name="lec_id">
                                                         <input type="hidden" class="form-control" placeholder=""
-                                                            value="<?php echo $row["a_id"]; ?>" name="a_id"><br>
+                                                            value="<?php echo $row["A_id"]; ?>" name="A_id"><br>
                                                     </div><br>
 
                                                 </div>
@@ -1020,12 +1062,12 @@ include_once "./SelectAll.php";
                                 </div>
                             </div>
                         </form>
-                        <?php 
-                }
-                // end while loop
-                include_once "./dialogDeleteAac.php"; 
-                include_once "./update_aacademic.php"; 
-                 ?>
+                        <?php
+                        }
+                        // end while loop
+                        include_once "./dialogDeleteAac.php";
+                        include_once "./update_aacademic.php";
+                        ?>
                     </table>
                 </div>
 
@@ -1042,93 +1084,84 @@ include_once "./SelectAll.php";
 
                             <!-- Modal body -->
                             <div class="modal-body">
+
                                 <form class="form-horizontal" method="post" action="./insert_aacademic.php">
                                     <fieldset>
-                                        <div class="container">
-                                            <div class="form-group">
-                                                <label class="col-md-12 control-label" for="Aautor">ชื่อผู้แต่ง</label>
-                                                <div class="col-md-12">
-                                                    <input id="Aautor" name="Aautor" type="text" placeholder=""
-                                                        class="form-control input-md">
+                                        <!-- Text input-->
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" for="Aautor">ชื่อผู้เขียน</label>
+                                            <div class="col-md-12">
+                                                <input id="Aautor" name="Aautor" type="text" placeholder=""
+                                                    class="form-control input-md">
 
-                                                </div>
                                             </div>
+                                        </div>
 
-                                            <!-- Text input-->
-                                            <div class="form-group">
-                                                <label class="col-md-12 control-label" for="Ayear">ปีที่พิมพ์</label>
-                                                <div class="col-md-12">
-                                                    <input id="Ayear" name="Ayear" type="text" placeholder=""
-                                                        class="form-control input-md">
+                                        <!-- Text input-->
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" for="Ayear">ปีที่พิมพ์</label>
+                                            <div class="col-md-12">
+                                                <input id="Ayear" name="Ayear" type="text" placeholder=""
+                                                    class="form-control input-md">
 
-                                                </div>
                                             </div>
+                                        </div>
 
-                                            <!-- Text input-->
-                                            <div class="form-group">
-                                                <label class="col-md-12 control-label" for="Abook">ชื่อหนังสือ</label>
-                                                <div class="col-md-12">
-                                                    <input id="Abook" name="Abook" type="text" placeholder=""
-                                                        class="form-control input-md">
+                                        <!-- Text input-->
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" for="Atite">ชื่อบทความ</label>
+                                            <div class="col-md-12">
+                                                <input id="Atite" name="Atite" type="text" placeholder=""
+                                                    class="form-control input-md">
 
-                                                </div>
                                             </div>
+                                        </div>
 
-                                            <!-- Text input-->
-                                            <div class="form-group">
-                                                <label class="col-md-12 control-label"
-                                                    for="Aedition">พิมพ์ครั้งที่</label>
-                                                <div class="col-md-12">
-                                                    <input id="Aedition" name="Aedition" type="text" placeholder=""
-                                                        class="form-control input-md">
+                                        <!-- Text input-->
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" for="Atite_jour">ชื่อวารสาร</label>
+                                            <div class="col-md-12">
+                                                <input id="Atite_jour" name="Atite_jour" type="text" placeholder=""
+                                                    class="form-control input-md">
 
-                                                </div>
                                             </div>
+                                        </div>
 
-                                            <!-- Text input-->
-                                            <div class="form-group">
-                                                <label class="col-md-12 control-label" for="Alocation">สถานที่พิมพ์
-                                                    :</label>
-                                                <div class="col-md-12">
-                                                    <input id="Alocation" name="Alocation" type="text" placeholder=""
-                                                        class="form-control input-md">
+                                        <!-- Text input-->
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" for="Avolune">ปีที่(ฉบับที่)
+                                                :</label>
+                                            <div class="col-md-12">
+                                                <input id="Avolune" name="Avolune" type="text" placeholder=""
+                                                    class="form-control input-md">
 
-                                                </div>
                                             </div>
+                                        </div>
 
-                                            <!-- Text input-->
-                                            <div class="form-group">
-                                                <label class="col-md-12 control-label"
-                                                    for="Apublisher">สำนักพิมพ์</label>
-                                                <div class="col-md-12">
-                                                    <input id="Apublisher" name="Apublisher" type="text" placeholder=""
-                                                        class="form-control input-md">
+                                        <!-- Text input-->
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" for="Apage">เลขหน้า</label>
+                                            <div class="col-md-12">
+                                                <input id="Apage" name="Apage" type="text" placeholder=""
+                                                    class="form-control input-md">
+                                                <input type="hidden" class="form-control" placeholder=""
+                                                    value="<?= $lec_id ?>" name="lec_id">
+                                            </div>
+                                        </div>
 
-                                                </div>
-                                            </div>
+                                        <!-- Modal footer -->
+                                        <div class="modal-footer">
+                                            <button type="summit" class="btn btn-success" data-bs-toggle="modal"
+                                                name="submitAacademic">บันทึก</button>
+                                            <button type="button" class="btn btn-danger"
+                                                data-bs-dismiss="modal">ยกเลิก</button>
 
-                                            <!-- Text input-->
-                                            <div class="form-group">
-                                                <label class="col-md-12 control-label"
-                                                    for="Apage">จำนวนหน้าที่พิมพ์</label>
-                                                <div class="col-md-12">
-                                                    <input id="Apage" name="Apage" type="text" placeholder=""
-                                                        class="form-control input-md">
-                                                    <input type="hidden" class="form-control" placeholder=""
-                                                        value="<?=$lec_id?>" name="lec_id">
-                                                </div>
-                                            </div>
-                                            <!-- Modal footer -->
-                                            <div class="modal-footer">
-                                                <button type="summit" class="btn btn-success" data-bs-toggle="modal"
-                                                    name="submitAacademic">บันทึก</button>
-                                                <button type="button" class="btn btn-danger"
-                                                    data-bs-dismiss="modal">ยกเลิก</button>
-                                            </div>
+
                                     </fieldset>
                                 </form>
 
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -1143,18 +1176,18 @@ include_once "./SelectAll.php";
 
                     <table class="table" style="width:75%;">
                         <?php
-                while ($row = mysqli_fetch_assoc($result_con)) { 
-                 ?>
+                        while ($row = mysqli_fetch_assoc($result_con)) {
+                        ?>
                         <tr>
-                            <td><?php  echo "" .$row["Cautor"] .  ". ",
-                     "(" .$row["Cyear"] .  "). ",
-                     "" .$row["Ctite"] .  ". ",
-                     "" .$row["Cditor"] .  ", ",
-                     "" .$row["Ctopic"] .  " : ",
-                     "" .$row["Cdate"] .  ". ",
-                     "" .$row["Clocation"] .  ", ",
-                     "" .$row["Cpublisher"] .  " : ",
-                     "" .$row["Cpage"] .  ". <br>"; ?></td>
+                            <td><?php echo "" . $row["Cautor"] .  ". ",
+                                    "(" . $row["Cyear"] .  "). ",
+                                    "" . $row["Ctite"] .  ". ",
+                                    "" . $row["Cditor"] .  ", ",
+                                    "" . $row["Ctopic"] .  " : ",
+                                    "" . $row["Cdate"] .  ". ",
+                                    "" . $row["Clocation"] .  ", ",
+                                    "" . $row["Cpublisher"] .  " : ",
+                                    "" . $row["Cpage"] .  ". <br>"; ?></td>
                             <td class="text-center">
                                 <div class="btn-group btn-group-sm">
                                     <button class="btn" data-bs-toggle="modal"
@@ -1162,7 +1195,7 @@ include_once "./SelectAll.php";
                                         <i class="fas fa-edit" style="font-size:18px;"> </i>
                                     </button>
                                     <a class="btn"
-                                        href="form.php?deleteConConfirm=req&c_id=<?php echo $row["c_id"]; ?>&lec_id=<?=$lec_id?>">
+                                        href="form.php?deleteConConfirm=req&c_id=<?php echo $row["c_id"]; ?>&lec_id=<?= $lec_id ?>">
                                         <i class="fas fa-trash" style="font-size:18px;"> </i>
                                     </a>
                                 </div>
@@ -1231,7 +1264,7 @@ include_once "./SelectAll.php";
                                                         <input type="text" class="form-control" placeholder=""
                                                             value="<?php echo $row["Cpage"]; ?>" name="Cpage">
                                                         <input type="hidden" class="form-control" placeholder=""
-                                                            value="<?=$lec_id?>" name="lec_id">
+                                                            value="<?= $lec_id ?>" name="lec_id">
                                                         <input type="hidden" class="form-control" placeholder=""
                                                             value="<?php echo $row["c_id"]; ?>" name="c_id"><br>
                                                     </div><br>
@@ -1250,12 +1283,12 @@ include_once "./SelectAll.php";
                                 </div>
                             </div>
                         </form>
-                        <?php 
-                }
-                // end while loop
-                include_once "./dialogDeleteCon.php"; 
-                include_once "./update_conferences.php"; 
-                 ?>
+                        <?php
+                        }
+                        // end while loop
+                        include_once "./dialogDeleteCon.php";
+                        include_once "./update_conferences.php";
+                        ?>
                     </table>
 
                 </div>
@@ -1364,7 +1397,7 @@ include_once "./SelectAll.php";
                                                 <input id="Cpage" name="Cpage" type="text" placeholder=""
                                                     class="form-control input-md">
                                                 <input type="hidden" class="form-control" placeholder=""
-                                                    value="<?=$lec_id?>" name="lec_id">
+                                                    value="<?= $lec_id ?>" name="lec_id">
                                             </div>
                                         </div>
                                         <!-- Modal footer -->
@@ -1385,419 +1418,434 @@ include_once "./SelectAll.php";
                 </div>
                 <br><!-- end container -->
 
-                <!-- start subject -->
-                <b>5. ภาระงานสอน</b>
-                <div class="container mt-3">
-                    <b>5.1 ภาระงานสอนเดิม</b><br>
-                    <b>ระดับปริญญาตรี</b>
-                    <form method="post" action="./insert_bachelor.php">
-                        <div class="row mt-3">
-                            <div class="col-md-2">
-                                <input type="text" class="form-control" v-model.trim="search_course_1"
-                                    placeholder="รหัสวิชา" name="bach_code">
-                                <button type="button" @click="searchCourseFunc_1" name=""
-                                    class="btn btn-secondary text-white" id="..">
-                                    ค้นหา
-                                </button>
-                            </div>
-                            <div class="col-md-4">
-                                <input type="text" class="form-control" v-model.trim="course_input_1"
-                                    placeholder="ชื่อรายวิชา" name="bach_name">
-                                <input type="hidden" class="form-control" placeholder="" value="<?=$lec_id?>"
-                                    name="lec_id">
-                            </div>
-                            <div class="col-md-2">
-                                <button type="submit" name="submitBachelor" class="btn btn-warning text-white"
-                                    id="btn1">
-                                    บันทึก
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                <div id="appUpdate">
 
-                    <table class="table" style="width: 40%;">
-                        <?php
-                while ($row = mysqli_fetch_assoc($result_bac)) { 
-                 ?>
-                        <tr>
-                            <td><?php echo $row["bach_code"]; ?></td>
-                            <td><?php echo $row["bach_name"]; ?></td>
-                            <td class="text-center">
-                                <div class="btn-group btn-group-sm">
-                                    <a class="btn"
-                                        href="form.php?deleteBacConfirm=req&bach_id=<?php echo $row["bach_id"]; ?>&lec_id=<?=$lec_id?>">
-                                        <i class="fas fa-window-close" style="font-size:18px;"> </i>
-                                    </a>
+                    <!-- start subject -->
+                    <b>5. ภาระงานสอน</b>
+                    <div class="container mt-3">
+                        <b>5.1 ภาระงานสอนเดิม</b><br>
+                        <b>ระดับปริญญาตรี</b>
+                        <form method="post" action="./insert_bachelor.php">
+                            <div class="row mt-3">
+                                <div class="col-md-2">
+                                    <input type="text" class="form-control" v-model.trim="search_course_1"
+                                        placeholder="รหัสวิชา" name="bach_code">
+                                    <button type="button" @click="searchCourseFunc_1" name=""
+                                        class="btn btn-secondary text-white" id="..">
+                                        ค้นหา
+                                    </button>
                                 </div>
-                            </td>
-                        </tr>
-
-                        <!-- Modal -->
-                        <form method="post">
-                            <div class="modal fade mt-3" id="exampleModal51<?php echo $row["bach_id"]; ?>" tabindex="-1"
-                                aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">ระดับปริญญาตรี</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close">
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="row">
-
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <p>รหัสวิชา</p>
-                                                        <input type="text" class="form-control" placeholder=""
-                                                            value="<?php echo $row["bach_code"]; ?>" name="bach_code">
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <p>ชื่อรายวิชา</p>
-                                                        <input type="text" class="form-control" placeholder=""
-                                                            value="<?php echo $row["bach_name"]; ?>" name="bach_name">
-                                                        <input type="hidden" class="form-control" placeholder=""
-                                                            value="<?=$lec_id?>" name="lec_id">
-                                                        <input type="hidden" class="form-control" placeholder=""
-                                                            value="<?php echo $row["bach_id"]; ?>" name="bach_id"><br>
-                                                    </div><br>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">ยกเลิก</button>
-                                            <button class="btn btn-primary" type="submit"
-                                                name="submitUpdateBachelor">บันทึก</button>
-                                        </div>
-
-                                    </div>
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" v-model.trim="course_input_1"
+                                        placeholder="ชื่อรายวิชา" name="bach_name">
+                                    <input type="hidden" class="form-control" placeholder="" value="<?= $lec_id ?>"
+                                        name="lec_id">
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="submit" name="submitBachelor" class="btn btn-warning text-white"
+                                        id="btn1">
+                                        บันทึก
+                                    </button>
                                 </div>
                             </div>
                         </form>
-                        <?php 
-                }
-                // end while loop
-                include_once "./dialogDeleteBac.php"; 
-                include_once "./update_bachelor.php"; 
 
-                 ?>
-                        </tbody>
-                    </table>
+                        <table class="table" style="width: 40%;">
+                            <?php
+                            while ($row = mysqli_fetch_assoc($result_bac)) {
+                            ?>
+                            <tr>
+                                <td><?php echo $row["bach_code"]; ?></td>
+                                <td><?php echo $row["bach_name"]; ?></td>
+                                <td class="text-center">
+                                    <div class="btn-group btn-group-sm">
+                                        <a class="btn"
+                                            href="form.php?deleteBacConfirm=req&bach_id=<?php echo $row["bach_id"]; ?>&lec_id=<?= $lec_id ?>">
+                                            <i class="fas fa-window-close" style="font-size:18px;"> </i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
 
+                            <!-- Modal -->
+                            <form method="post">
+                                <div class="modal fade mt-3" id="exampleModal51<?php echo $row["bach_id"]; ?>"
+                                    tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
 
-                    <b>ระดับปริญญาโท</b>
-                    <form method="post" action="./insert_master1.php">
-                        <div class="row mt-3">
-                            <div class="col-md-2">
-                                <input type="text" class="form-control" v-model.trim="search_course_2"
-                                    placeholder="รหัสวิชา" name="mast_code">
-                                <button type="button" @click="searchCourseFunc_2" class="btn btn-secondary text-white"
-                                    id="btn1">
-                                    ค้นหา
-                                </button>
-                            </div>
-                            <div class="col-md-4">
-                                <input type="text" class="form-control" v-model.trim="course_input_2"
-                                    placeholder="ชื่อรายวิชา" name="mast_name">
-                                <input type="hidden" class="form-control" placeholder="" value="<?=$lec_id?>"
-                                    name="lec_id">
-                            </div>
-                            <div class="col-md-2">
-                                <button type="submit" name="submitMaster1" class="btn btn-warning text-white" id="btn1">
-                                    บันทึก
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-
-                    <table class="table" style="width: 40%;">
-                        <?php
-                while ($row = mysqli_fetch_assoc($result_mas)) { 
-                 ?>
-                        <tr>
-                            <td><?php echo $row["mast_code"]; ?></td>
-                            <td><?php echo $row["mast_name"]; ?></td>
-                            <td class="text-center">
-                                <div class="btn-group btn-group-sm">
-                                    <a class="btn"
-                                        href="form.php?deleteMasConfirm=req&mast_id=<?php echo $row["mast_id"]; ?>&lec_id=<?=$lec_id?>">
-                                        <i class="fas fa-window-close" style="font-size:18px;"> </i>
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <!-- Modal -->
-                        <form method="post">
-                            <div class="modal fade" id="exampleModal52<?php echo $row["mast_id"]; ?>" tabindex="-1"
-                                aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">ระดับปริญญาโท</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close">
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="row">
-
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">ระดับปริญญาตรี</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close">
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
                                                 <div class="row">
-                                                    <div class="col-md-12">
-                                                        <p>รหัสวิชา</p>
-                                                        <input type="text" class="form-control" placeholder=""
-                                                            value="<?php echo $row["mast_code"]; ?>" name="mast_code">
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <p>ชื่อรายวิชา</p>
-                                                        <input type="text" class="form-control" placeholder=""
-                                                            value="<?php echo $row["mast_name"]; ?>" name="mast_name">
-                                                        <input type="hidden" class="form-control" placeholder=""
-                                                            value="<?=$lec_id?>" name="lec_id">
-                                                        <input type="hidden" class="form-control" placeholder=""
-                                                            value="<?php echo $row["mast_id"]; ?>" name="mast_id"><br>
-                                                    </div><br>
 
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <p>รหัสวิชา</p>
+                                                            <input type="text" class="form-control" placeholder=""
+                                                                value="<?php echo $row["bach_code"]; ?>"
+                                                                name="bach_code">
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <p>ชื่อรายวิชา</p>
+                                                            <input type="text" class="form-control" placeholder=""
+                                                                value="<?php echo $row["bach_name"]; ?>"
+                                                                name="bach_name">
+                                                            <input type="hidden" class="form-control" placeholder=""
+                                                                value="<?= $lec_id ?>" name="lec_id">
+                                                            <input type="hidden" class="form-control" placeholder=""
+                                                                value="<?php echo $row["bach_id"]; ?>"
+                                                                name="bach_id"><br>
+                                                        </div><br>
+
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Close</button>
-                                            <button class="btn btn-primary" type="submit"
-                                                name="submitUpdateMaster1">Save
-                                                changes</button>
-                                        </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">ยกเลิก</button>
+                                                <button class="btn btn-primary" type="submit"
+                                                    name="submitUpdateBachelor">บันทึก</button>
+                                            </div>
 
+                                        </div>
                                     </div>
+                                </div>
+                            </form>
+                            <?php
+                            }
+                            // end while loop
+                            include_once "./dialogDeleteBac.php";
+                            include_once "./update_bachelor.php";
+
+                            ?>
+                            </tbody>
+                        </table>
+
+
+                        <b>ระดับปริญญาโท</b>
+                        <form method="post" action="./insert_master1.php">
+                            <div class="row mt-3">
+                                <div class="col-md-2">
+                                    <input type="text" class="form-control" v-model.trim="search_course_2"
+                                        placeholder="รหัสวิชา" name="mast_code">
+                                    <button type="button" @click="searchCourseFunc_2"
+                                        class="btn btn-secondary text-white" id="btn1">
+                                        ค้นหา
+                                    </button>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" v-model.trim="course_input_2"
+                                        placeholder="ชื่อรายวิชา" name="mast_name">
+                                    <input type="hidden" class="form-control" placeholder="" value="<?= $lec_id ?>"
+                                        name="lec_id">
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="submit" name="submitMaster1" class="btn btn-warning text-white"
+                                        id="btn1">
+                                        บันทึก
+                                    </button>
                                 </div>
                             </div>
                         </form>
-                        <?php 
-                }
-                // end while loop
-                include_once "./dialogDeleteMaster1.php"; 
-                include_once "./update_master1.php"; 
 
-                 ?>
-                        </tbody>
-                    </table>
+                        <table class="table" style="width: 40%;">
+                            <?php
+                            while ($row = mysqli_fetch_assoc($result_mas)) {
+                            ?>
+                            <tr>
+                                <td><?php echo $row["mast_code"]; ?></td>
+                                <td><?php echo $row["mast_name"]; ?></td>
+                                <td class="text-center">
+                                    <div class="btn-group btn-group-sm">
+                                        <a class="btn"
+                                            href="form.php?deleteMasConfirm=req&mast_id=<?php echo $row["mast_id"]; ?>&lec_id=<?= $lec_id ?>">
+                                            <i class="fas fa-window-close" style="font-size:18px;"> </i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
 
-                    <b>ระดับปริญญาเอก</b>
-                    <form method="post" action="./insert_doctorate.php">
-                        <div class="row mt-3">
-                            <div class="col-md-2 mb-3">
-                                <input type="text" class="form-control" v-model.trim="search_course_3"
-                                    placeholder="รหัสวิชา" name="doc_code">
-                                <button type="button" @click="searchCourseFunc_3" name="...."
-                                    class="btn btn-secondary text-white" id="btn1">
-                                    ค้นหา
-                                </button>
-                            </div>
-                            <div class="col-md-4">
-                                <input type="text" class="form-control" v-model.trim="course_input_3"
-                                    placeholder="ชื่อรายวิชา" name="doc_name">
-                                <input type="hidden" class="form-control" placeholder="" value="<?=$lec_id?>"
-                                    name="lec_id">
-                            </div>
-                            <div class="col-md-2">
-                                <button type="submit" name="submitDoctorate" class="btn btn-warning text-white"
-                                    id="btn1">
-                                    บันทึก
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                            <!-- Modal -->
+                            <form method="post">
+                                <div class="modal fade" id="exampleModal52<?php echo $row["mast_id"]; ?>" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
 
-                    <table class="table" style="width: 40%;">
-                        <?php
-                while ($row = mysqli_fetch_assoc($result_doc)) { 
-                 ?>
-                        <tr>
-                            <td><?php echo $row["doc_code"]; ?></td>
-                            <td><?php echo $row["doc_name"]; ?></td>
-                            <td class="text-center">
-                                <div class="btn-group btn-group-sm">
-                                    <a class="btn"
-                                        href="form.php?deleteDocConfirm=req&doc_id=<?php echo $row["doc_id"]; ?>&lec_id=<?=$lec_id?>">
-                                        <i class="fas fa-window-close" style="font-size:18px;"> </i>
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <!-- Modal -->
-                        <form method="post">
-                            <div class="modal fade" id="exampleModal53<?php echo $row["doc_id"]; ?>" tabindex="-1"
-                                aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">ระดับปริญญาเอก</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close">
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="row">
-
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">ระดับปริญญาโท</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close">
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
                                                 <div class="row">
-                                                    <div class="col-md-12">
-                                                        <p>รหัสวิชา</p>
-                                                        <input type="text" class="form-control" placeholder=""
-                                                            value="<?php echo $row["doc_code"]; ?>" name="doc_code">
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <p>ชื่อรายวิชา</p>
-                                                        <input type="text" class="form-control" placeholder=""
-                                                            value="<?php echo $row["doc_name"]; ?>" name="doc_name">
-                                                        <input type="hidden" class="form-control" placeholder=""
-                                                            value="<?=$lec_id?>" name="lec_id">
-                                                        <input type="hidden" class="form-control" placeholder=""
-                                                            value="<?php echo $row["doc_id"]; ?>" name="doc_id"><br>
-                                                    </div><br>
 
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <p>รหัสวิชา</p>
+                                                            <input type="text" class="form-control" placeholder=""
+                                                                value="<?php echo $row["mast_code"]; ?>"
+                                                                name="mast_code">
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <p>ชื่อรายวิชา</p>
+                                                            <input type="text" class="form-control" placeholder=""
+                                                                value="<?php echo $row["mast_name"]; ?>"
+                                                                name="mast_name">
+                                                            <input type="hidden" class="form-control" placeholder=""
+                                                                value="<?= $lec_id ?>" name="lec_id">
+                                                            <input type="hidden" class="form-control" placeholder=""
+                                                                value="<?php echo $row["mast_id"]; ?>"
+                                                                name="mast_id"><br>
+                                                        </div><br>
+
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">ยกเลิก</button>
-                                            <button class="btn btn-primary" type="submit"
-                                                name="submitUpdateDoctorate">บันทึก</button>
-                                        </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                                <button class="btn btn-primary" type="submit"
+                                                    name="submitUpdateMaster1">Save
+                                                    changes</button>
+                                            </div>
 
+                                        </div>
                                     </div>
+                                </div>
+                            </form>
+                            <?php
+                            }
+                            // end while loop
+                            include_once "./dialogDeleteMaster1.php";
+                            include_once "./update_master1.php";
+
+                            ?>
+                            </tbody>
+                        </table>
+
+                        <b>ระดับปริญญาเอก</b>
+                        <form method="post" action="./insert_doctorate.php">
+                            <div class="row mt-3">
+                                <div class="col-md-2 mb-3">
+                                    <input type="text" class="form-control" v-model.trim="search_course_3"
+                                        placeholder="รหัสวิชา" name="doc_code">
+                                    <button type="button" @click="searchCourseFunc_3" name="...."
+                                        class="btn btn-secondary text-white" id="btn1">
+                                        ค้นหา
+                                    </button>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" v-model.trim="course_input_3"
+                                        placeholder="ชื่อรายวิชา" name="doc_name">
+                                    <input type="hidden" class="form-control" placeholder="" value="<?= $lec_id ?>"
+                                        name="lec_id">
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="submit" name="submitDoctorate" class="btn btn-warning text-white"
+                                        id="btn1">
+                                        บันทึก
+                                    </button>
                                 </div>
                             </div>
                         </form>
-                        <?php 
-                }
-                // end while loop
-                include_once "./dialogDeleteDoc.php"; 
-                include_once "./update_doctorate.php"; 
 
-                 ?>
-                        </tbody>
-                    </table>
+                        <table class="table" style="width: 40%;">
+                            <?php
+                            while ($row = mysqli_fetch_assoc($result_doc)) {
+                            ?>
+                            <tr>
+                                <td><?php echo $row["doc_code"]; ?></td>
+                                <td><?php echo $row["doc_name"]; ?></td>
+                                <td class="text-center">
+                                    <div class="btn-group btn-group-sm">
+                                        <a class="btn"
+                                            href="form.php?deleteDocConfirm=req&doc_id=<?php echo $row["doc_id"]; ?>&lec_id=<?= $lec_id ?>">
+                                            <i class="fas fa-window-close" style="font-size:18px;"> </i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
 
-                    <b>5.2 ภาระงานสอนที่เพิ่มขึ้น</b>
-                    <form method="post" action="./insert_teachmore.php">
-                        <div class="row mt-3">
-                            <div class="col-md-2">
-                                <input type="text" class="form-control" v-model.trim="search_course_4"
-                                    placeholder="รหัสวิชา" name="teach_code">
-                                <button type="button" @click="searchCourseFunc_4" name="...."
-                                    class="btn btn-secondary text-white" id="btn1">
-                                    ค้นหา
-                                </button>
-                            </div>
-                            <div class="col-md-4">
-                                <input type="text" class="form-control" v-model.trim="course_input_4"
-                                    placeholder="ชื่อรายวิชา" name="teach_name">
-                                <input type="hidden" class="form-control" placeholder="" value="<?=$lec_id?>"
-                                    name="lec_id">
-                            </div>
-                            <div class="col-md-2">
-                                <button type="submit" name="submitTeachmore" class="btn btn-warning text-white"
-                                    id="btn1">
-                                    บันทึก
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                            <!-- Modal -->
+                            <form method="post">
+                                <div class="modal fade" id="exampleModal53<?php echo $row["doc_id"]; ?>" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
 
-                    <table class="table" style="width: 40%;">
-                        <?php
-                while ($row = mysqli_fetch_assoc($result_tea)) { 
-                 ?>
-                        <tr>
-                            <td><?php echo $row["teach_code"]; ?></td>
-                            <td><?php echo $row["teach_name"]; ?></td>
-                            <td class="text-center">
-                                <div class="btn-group btn-group-sm">
-                                    <a class="btn"
-                                        href="form2.php?deleteTeaConfirm=req&teach_id=<?php echo $row["teach_id"]; ?>&lec_id=<?=$lec_id?>">
-                                        <i class="fas fa-window-close" style="font-size:18px;"> </i>
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <!-- Modal -->
-                        <form method="post">
-                            <div class="modal fade" id="exampleModal54<?php echo $row["teach_id"]; ?>" tabindex="-1"
-                                aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">ภาระงานสอนที่เพิ่มขึ้น</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close">
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="row">
-
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">ระดับปริญญาเอก</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close">
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
                                                 <div class="row">
-                                                    <div class="col-md-12">
-                                                        <p>รหัสวิชา</p>
-                                                        <input type="text" class="form-control" placeholder=""
-                                                            value="<?php echo $row["teach_code"]; ?>" name="teach_code">
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <p>ชื่อรายวิชา</p>
-                                                        <input type="text" class="form-control" placeholder=""
-                                                            value="<?php echo $row["teach_name"]; ?>" name="teach_name">
-                                                        <input type="hidden" class="form-control" placeholder=""
-                                                            value="<?=$lec_id?>" name="lec_id">
-                                                        <input type="hidden" class="form-control" placeholder=""
-                                                            value="<?php echo $row["teach_id"]; ?>" name="teach_id"><br>
-                                                    </div><br>
 
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <p>รหัสวิชา</p>
+                                                            <input type="text" class="form-control" placeholder=""
+                                                                value="<?php echo $row["doc_code"]; ?>" name="doc_code">
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <p>ชื่อรายวิชา</p>
+                                                            <input type="text" class="form-control" placeholder=""
+                                                                value="<?php echo $row["doc_name"]; ?>" name="doc_name">
+                                                            <input type="hidden" class="form-control" placeholder=""
+                                                                value="<?= $lec_id ?>" name="lec_id">
+                                                            <input type="hidden" class="form-control" placeholder=""
+                                                                value="<?php echo $row["doc_id"]; ?>" name="doc_id"><br>
+                                                        </div><br>
+
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">ยกเลิก</button>
-                                            <button class="btn btn-primary" type="submit"
-                                                name="submitUpdateTeachmore">บันทึก</button>
-                                        </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">ยกเลิก</button>
+                                                <button class="btn btn-primary" type="submit"
+                                                    name="submitUpdateDoctorate">บันทึก</button>
+                                            </div>
 
+                                        </div>
                                     </div>
+                                </div>
+                            </form>
+                            <?php
+                            }
+                            // end while loop
+                            include_once "./dialogDeleteDoc.php";
+                            include_once "./update_doctorate.php";
+
+                            ?>
+                            </tbody>
+                        </table>
+
+                        <b>5.2 ภาระงานสอนที่เพิ่มขึ้น</b>
+                        <form method="post" action="./insert_teachmore.php">
+                            <div class="row mt-3">
+                                <div class="col-md-2">
+                                    <input type="text" class="form-control" v-model.trim="search_course_4"
+                                        placeholder="รหัสวิชา" name="teach_code">
+                                    <button type="button" @click="searchCourseFunc_4" name="...."
+                                        class="btn btn-secondary text-white" id="btn1">
+                                        ค้นหา
+                                    </button>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" v-model.trim="course_input_4"
+                                        placeholder="ชื่อรายวิชา" name="teach_name">
+                                    <input type="hidden" class="form-control" placeholder="" value="<?= $lec_id ?>"
+                                        name="lec_id">
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="submit" name="submitTeachmore" class="btn btn-warning text-white"
+                                        id="btn1">
+                                        บันทึก
+                                    </button>
                                 </div>
                             </div>
                         </form>
-                        <?php 
-                }
-                // end while loop
-                include_once "./dialogDeleteTea.php"; 
-                include_once "./insert_teachmore.php"; 
 
-                 ?>
-                        </tbody>
-                    </table>
-                    <br>
+                        <table class="table" style="width: 40%;">
+                            <?php
+                            while ($row = mysqli_fetch_assoc($result_tea)) {
+                            ?>
+                            <tr>
+                                <td><?php echo $row["teach_code"]; ?></td>
+                                <td><?php echo $row["teach_name"]; ?></td>
+                                <td class="text-center">
+                                    <div class="btn-group btn-group-sm">
+                                        <a class="btn"
+                                            href="form.php?deleteTeaConfirm=req&teach_id=<?php echo $row["teach_id"]; ?>&lec_id=<?= $lec_id ?>">
+                                            <i class="fas fa-window-close" style="font-size:18px;"> </i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- Modal -->
+                            <form method="post">
+                                <div class="modal fade" id="exampleModal54<?php echo $row["teach_id"]; ?>" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">ภาระงานสอนที่เพิ่มขึ้น
+                                                </h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close">
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="row">
+
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <p>รหัสวิชา</p>
+                                                            <input type="text" class="form-control" placeholder=""
+                                                                value="<?php echo $row["teach_code"]; ?>"
+                                                                name="teach_code">
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <p>ชื่อรายวิชา</p>
+                                                            <input type="text" class="form-control" placeholder=""
+                                                                value="<?php echo $row["teach_name"]; ?>"
+                                                                name="teach_name">
+                                                            <input type="hidden" class="form-control" placeholder=""
+                                                                value="<?= $lec_id ?>" name="lec_id">
+                                                            <input type="hidden" class="form-control" placeholder=""
+                                                                value="<?php echo $row["teach_id"]; ?>"
+                                                                name="teach_id"><br>
+                                                        </div><br>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">ยกเลิก</button>
+                                                <button class="btn btn-primary" type="submit"
+                                                    name="submitUpdateTeachmore">บันทึก</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <?php
+                            }
+                            // end while loop
+                            include_once "./dialogDeleteTea.php";
+                            include_once "./insert_teachmore.php";
+
+                            ?>
+                            </tbody>
+                        </table>
+                        <br>
+                    </div>
+
+                    <a href="data.php" id="button1id" name="button1id" class="btn btn-success">เสร็จสิ้น</a>
+
                 </div>
-
-                <a href="data.php" id="button1id" name="button1id" class="btn btn-success">เสร็จสิ้น</a>
-
             </div>
         </div>
+
     </div>
 
 
     <script>
-    const app = new Vue({
-        el: '#app',
+    const appUpdate = new Vue({
+        el: '#appUpdate',
         data: () => ({
             message: 'Hello Vue!',
             search_course_1: "",

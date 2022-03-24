@@ -1,5 +1,5 @@
 <?php
-include_once "./SelectAll.php"; 
+include_once "./SelectAll.php";
 ?>
 
 <!DOCTYPE html>
@@ -153,10 +153,10 @@ include_once "./SelectAll.php";
                         </thead>
                         <tbody>
                             <?php
-                $i = 1;
-                
-                while ($item = mysqli_fetch_assoc($result_edu)) { 
-                ?>
+                            $i = 1;
+
+                            while ($item = mysqli_fetch_assoc($result_edu)) {
+                            ?>
                             <tr>
                                 <td class="" width="15%"><?php echo $i; ?></td>
                                 <td><?php echo $item["Tb_year"]; ?></td>
@@ -164,17 +164,15 @@ include_once "./SelectAll.php";
                                 <td><?php echo $item["Tb_titute"]; ?></td>
 
                             </tr>
-                            <?php 
-                   $i++;
-                }
-                 ?>
+                            <?php
+                                $i++;
+                            }
+                            ?>
                         </tbody>
                     </table>
 
                 </div>
             </div>
-
-
 
             <!-- ------------------------------------1 -->
             <b> 4. ผลงานทางวิชาการ </b>
@@ -184,16 +182,16 @@ include_once "./SelectAll.php";
                 <b>4.1 หนังสือ/ตำรา</b>
                 <div class="container">
                     <?php
-                while ($row = mysqli_fetch_assoc($result_tre)) { 
-                echo "" .$row["Tautor"] .  ". ",
-                     "(" .$row["Tyear"] .  "). ",
-                     "" .$row["Tbook"] .  ". ",
-                     "พิมพ์ครั้งที่ " .$row["Tedition"] .  ". ",
-                     "" .$row["Tlocation"] .  " ",
-                     ": " .$row["Tpublisher"] .  ". ",
-                     "" .$row["Tpage"] .  " หน้า. <br>";
-                }
-                 ?>
+                    while ($row = mysqli_fetch_assoc($result_tre)) {
+                        echo "" . $row["Tautor"] .  ". ",
+                        "(" . $row["Tyear"] .  "). ",
+                        "" . $row["Tbook"] .  ". ",
+                        "พิมพ์ครั้งที่ " . $row["Tedition"] .  ". ",
+                        "" . $row["Tlocation"] .  " ",
+                        ": " . $row["Tpublisher"] .  ". ",
+                        "" . $row["Tpage"] .  " หน้า. <br>";
+                    }
+                    ?>
                 </div>
             </div>
 
@@ -204,10 +202,18 @@ include_once "./SelectAll.php";
                 <b>4.2 บทความวิจัย </b>
                 <div class="container">
                     <?php
-                while ($row = mysqli_fetch_assoc($result_res)) { 
-                     echo "" .$row["Rautor"] .  ". ","(" .$row["Ryear"] .  "). ","" .$row["Rtite"] .  ". ","" .$row["Rtite_jour"] .  ", ","" .$row["Rvolune"] .  " : ","" .$row["Rpage"] .  ". ";
-                }
-                 ?>
+                    while ($row = mysqli_fetch_assoc($result_res)) {
+                        echo "" . $row["Rautor"] .  ". ",
+                        "(" . $row["Ryear"] .  "). ",
+                        "" . $row["Rtite"] .  ". ",
+                        "" . $row["Rditor"] .  ", ",
+                        "" . $row["Rtopic"] .  " : ",
+                        "" . $row["Rdate"] .  ". ",
+                        "" . $row["Rlocation"] .  ", ",
+                        "" . $row["Rpublisher"] .  " : ",
+                        "" . $row["Rpage"] .  ".  <br>";
+                    }
+                    ?>
                 </div>
             </div>
 
@@ -217,18 +223,18 @@ include_once "./SelectAll.php";
                 <b>4.3 ประชุมวิชาการ(ตัวนำเสนอ) </b>
                 <div class="container">
                     <?php
-                while ($row = mysqli_fetch_assoc($result_pre)) { 
-                echo "" .$row["Pautor"] .  ". ",
-                     "(" .$row["Pyear"] .  "). ",
-                     "" .$row["Ptite"] .  ". ",
-                     "" .$row["Pditor"] .  ", ",
-                     "" .$row["Ptopic"] .  " : ",
-                     "" .$row["Pdate"] .  ". ",
-                     "" .$row["Plocation"] .  ", ",
-                     "" .$row["Ppublisher"] .  " : ",
-                     "" .$row["Ppage"] .  ". ";
-                }
-                 ?>
+                    while ($row = mysqli_fetch_assoc($result_pre)) {
+                        echo "" . $row["Pautor"] .  ". ",
+                        "(" . $row["Pyear"] .  "). ",
+                        "" . $row["Ptite"] .  ". ",
+                        "" . $row["Pditor"] .  ", ",
+                        "" . $row["Ptopic"] .  " : ",
+                        "" . $row["Pdate"] .  ". ",
+                        "" . $row["Plocation"] .  ", ",
+                        "" . $row["Ppublisher"] .  " : ",
+                        "" . $row["Ppage"] .  ". ";
+                    }
+                    ?>
                 </div>
             </div>
 
@@ -238,16 +244,15 @@ include_once "./SelectAll.php";
                 <b>4.4 บทความวิชาการ </b>
                 <div class="container">
                     <?php
-                while ($row = mysqli_fetch_assoc($result_Aac)) { 
-                echo "" .$row["Aautor"] .  ". ",
-                     "(" .$row["Ayear"] .  "). ",
-                     "" .$row["Abook"] .  ". ",
-                     "พิมพ์ครั้งที่ " .$row["Aedition"] .  ". ",
-                     "" .$row["Alocation"] .  " ",
-                     ": " .$row["Apublisher"] .  ". ",
-                     "" .$row["Apage"] .  " หน้า. <br>";
-                }
-                 ?>
+                    while ($row = mysqli_fetch_assoc($result_Aac)) {
+                        echo  "" . $row["Aautor"] .  ". ",
+                        "(" . $row["Ayear"] .  "). ",
+                        "" . $row["Atite"] .  ". ",
+                        "" . $row["Atite_jour"] .  ", ",
+                        "" . $row["Avolune"] .  " : ",
+                        "" . $row["Apage"] .  ". ";
+                    }
+                    ?>
                 </div>
             </div>
             <!---------------------------------5 -->
@@ -256,18 +261,18 @@ include_once "./SelectAll.php";
                 <b>4.5 ประชุมวิชาการ </b>
                 <div class="container">
                     <?php
-                while ($row = mysqli_fetch_assoc($result_con)) { 
-                echo "" .$row["Cautor"] .  ". ",
-                     "(" .$row["Cyear"] .  "). ",
-                     "" .$row["Ctite"] .  ". ",
-                     "" .$row["Cditor"] .  ", ",
-                     "" .$row["Ctopic"] .  " : ",
-                     "" .$row["Cdate"] .  ". ",
-                     "" .$row["Clocation"] .  ", ",
-                     "" .$row["Cpublisher"] .  " : ",
-                     "" .$row["Cpage"] .  ". <br>";
-                }
-                 ?>
+                    while ($row = mysqli_fetch_assoc($result_con)) {
+                        echo "" . $row["Cautor"] .  ". ",
+                        "(" . $row["Cyear"] .  "). ",
+                        "" . $row["Ctite"] .  ". ",
+                        "" . $row["Cditor"] .  ", ",
+                        "" . $row["Ctopic"] .  " : ",
+                        "" . $row["Cdate"] .  ". ",
+                        "" . $row["Clocation"] .  ", ",
+                        "" . $row["Cpublisher"] .  " : ",
+                        "" . $row["Cpage"] .  ". <br>";
+                    }
+                    ?>
                 </div>
             </div><br>
 
@@ -282,33 +287,33 @@ include_once "./SelectAll.php";
                 <b>ระดับปริญญาตรี</b>
                 <div class="container mt-2">
                     <?php
-                while ($row = mysqli_fetch_assoc($result_bac)) { 
-                echo "" .$row["bach_code"] .  " ",
-                     "" .$row["bach_name"] .  "<br>";
-                }
-                 ?>
+                    while ($row = mysqli_fetch_assoc($result_bac)) {
+                        echo "" . $row["bach_code"] .  " ",
+                        "" . $row["bach_name"] .  "<br>";
+                    }
+                    ?>
                     <br>
                 </div>
 
                 <b>ระดับปริญญาโท</b>
                 <div class="container mt-2">
                     <?php
-                while ($row = mysqli_fetch_assoc($result_mas)) { 
-                echo "" .$row["mast_code"] .  " ",
-                     "" .$row["mast_name"] .  "<br>";
-                }
-                 ?>
+                    while ($row = mysqli_fetch_assoc($result_mas)) {
+                        echo "" . $row["mast_code"] .  " ",
+                        "" . $row["mast_name"] .  "<br>";
+                    }
+                    ?>
                 </div>
                 <br>
 
                 <b>ระดับปริญญาเอก</b>
                 <div class="container mt-2">
                     <?php
-                while ($row = mysqli_fetch_assoc($result_doc)) { 
-                echo "" .$row["doc_code"] .  " ",
-                     "" .$row["doc_name"] .  "<br>";
-                }
-                 ?>
+                    while ($row = mysqli_fetch_assoc($result_doc)) {
+                        echo "" . $row["doc_code"] .  " ",
+                        "" . $row["doc_name"] .  "<br>";
+                    }
+                    ?>
                 </div>
                 <br>
             </div>
@@ -317,12 +322,12 @@ include_once "./SelectAll.php";
             <div class="container mt-2">
                 <div class="container">
                     <?php
-                        while ($row = mysqli_fetch_assoc($result_tea)) { 
-                        echo "" .$row["teach_code"] .  " ",
-                            "" .$row["teach_name"] .  "<br>";
-                        }
-                    
-                        ?>
+                    while ($row = mysqli_fetch_assoc($result_tea)) {
+                        echo "" . $row["teach_code"] .  " ",
+                        "" . $row["teach_name"] .  "<br>";
+                    }
+
+                    ?>
                 </div>
             </div>
             <br>
